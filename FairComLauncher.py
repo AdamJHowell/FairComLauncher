@@ -57,11 +57,10 @@ def find_latest_version( base_dir ) -> Path | None:
             match = pattern.match( entry )
             if match:
                 version_str = match.group( 1 )
-                print( f"Version string: {version_str}" )
+                print( f"Found Edge version: {version_str}" )
 
                 # Convert "5.1.5.130" into (5, 1, 5, 130) for accurate numeric comparison.
                 version_tuple = tuple( map( int, version_str.split( '.' ) ) )
-                print( f"Found latest FairCom Edge version: {version_tuple}" )
 
                 # Update if this is the first found, or if it's a higher version.
                 if highest_version is None or version_tuple > highest_version:
